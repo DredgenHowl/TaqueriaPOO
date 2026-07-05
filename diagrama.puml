@@ -1,0 +1,40 @@
+@startuml DiagramUMLTacoYTaqueriaRomanEmilianoAmbrizMUro
+
+class Taqueria {
+  + {static} scanner: Scanner
+  + {static} main(args: String[]): void
+  + {static} imprimirOrdenes(ordenes: Taco[][]): void
+  + {static} eliminarTacoDeOrden(orden: Taco[], idEliminar: int): Taco[]
+  + {static} agregarTaco(orden: Taco[], nuevoTaco: Taco): Taco[]
+  + {static} mostrarMenu(): void
+  + {static} calculaPrecioDelTaco(tipoTortilla: String, relleno: String): double
+}
+
+class Taco {
+  - id: int
+  - tipoTortilla: String
+  - relleno: String
+  - tieneCebolla: boolean
+  - tieneSalsa: boolean
+  - precio: double
+  
+  + Taco(id: int, tipoTortilla: String, relleno: String, precio: double, tieneCebolla: boolean, tieneSalsa: boolean)
+  
+  + getTipoTortilla(): String
+  + getRelleno(): String
+  + isTieneCebolla(): boolean
+  + setTieneCebolla(tieneCebolla: boolean): void
+  + isTieneSalsa(): boolean
+  + setTieneSalsa(tieneSalsa: boolean): void
+  + getPrecio(): double
+  + getId(): int
+  + setId(id: int): void
+  
+  + agregarSalsa(): void
+  + quitarCebolla(): void
+  + mostrarDescripcion(): void
+}
+
+Taqueria ..> Taco : "crea y maneja arreglos, métodos, parámetros y funciones de: "
+
+@enduml
